@@ -4,7 +4,7 @@ This is a Front End Application of React-tinder-app.
 
 Technologies uses :
 
-a> React
-b > Tailwind CSS
-c > Vite as Bundler
-d > Redux for storage Management
+a> React <br/>
+b > Tailwind CSS <br/>
+c > Vite as Bundler <br/>
+d > Redux for storage Management <br/>
