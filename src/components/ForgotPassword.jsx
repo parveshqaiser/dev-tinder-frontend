@@ -33,7 +33,6 @@ const ForgotPassword = () => {
 
     async function handleSubmit(status)
     {
-        console.log("emai ", formValues.email.value)
         let {email, newPassword, confirmPassword} = formValues;
         if(status == "email")
         {
@@ -46,8 +45,6 @@ const ForgotPassword = () => {
             let email = formValues.email.value;
             try {
                 let res = await axios.post(BASE_URL+ "/check/email",{email}, {withCredentials: true});
-                console.log(res);
-
                 if(res.data.success){
                     toast.success("Email valid", {duration : 2000})
                     setTimeout(()=>{
@@ -88,7 +85,6 @@ const ForgotPassword = () => {
 
             try {
                 let res = await axios.post(BASE_URL + "/forgot/password",data, {withCredentials: true})
-                console.log(res);
                 if(res.data.success){
                     toast.success(res.data.message , {duration : 1000})
                     setTimeout(()=>{
