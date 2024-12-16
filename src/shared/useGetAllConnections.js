@@ -20,7 +20,7 @@ const useGetAllConnections = () => {
         } catch (error) {
             if(error.status == 401){
                 navigate("/")
-            }          
+            }         
             console.log("error ",error)
         }
     }

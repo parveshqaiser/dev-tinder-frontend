@@ -142,7 +142,8 @@ const UpdatePassword = () => {
             <div className='text-center'>
                 <button 
                     onClick={handleSubmit}
-                    className="bg-pink-500 hover:bg-pink-600 w-1/4 p-2 rounded-md">Submit</button>
+                    className="bg-pink-500 hover:bg-pink-600 w-1/4 p-2 rounded-md"
+                >Submit</button>
             </div>
         </div>
     )
