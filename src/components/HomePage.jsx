@@ -70,7 +70,6 @@ const HomePage = () => {
     }
 
     return (
-
         <main className='w-[265px] mx-auto mt-2 p-1 bg-slate-200 rounded-md'>
             <p className='text-center'>{!!feed && feed.length>1 && "Swipe Left or Right"}</p>
             <div className="carousel rounded-box w-64">

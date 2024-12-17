@@ -13,16 +13,20 @@ import Body from './components/Body'
 import UpdatePassword from './components/UpdatePassword'
 import PendingRequest from './components/PendingRequest'
 import FriendsList from './components/FriendsList'
+import Message from './components/Message'
+import ForgotPassword from './components/ForgotPassword'
+
 
 function App() {
   return(
     <>
     <Provider store={appStore}> 
-      <BrowserRouter basename='/'>
+      <BrowserRouter basename='/'>     
         <Routes>
           <Route path='/' element={<AlternateLogin />}></Route>
           <Route path='/login' element={<AlternateLogin />}></Route>
           <Route path='/signup' element={<SingUpPage />}></Route>
+          <Route path='/forgot-password' element={<ForgotPassword />}></Route>  
 
           <Route element={<Body />}>
               <Route path='/home' element={<HomePage />}></Route>
@@ -30,10 +34,11 @@ function App() {
               <Route path='/edit' element={<EditProfile />}></Route>
               <Route path='/change/password' element={<UpdatePassword/>}></Route>
               <Route path='/request' element={<PendingRequest />}></Route>
-              <Route path='/friends' element={<FriendsList />}></Route>
+              <Route path='/friends' element={<FriendsList />}></Route>  
+              <Route path='/message' element={<Message />}></Route>                   
           </Route>
           <Route path='*' element={<h1 className='text-center mt-2 text-red-400 font-semibold'> 404 !!!Requested Page Not Found</h1>}></Route>
-        </Routes>
+        </Routes>       
       </BrowserRouter>
     </Provider>
     </>

@@ -7,6 +7,7 @@ let userSlice = createSlice({
         user: null,
         allFeed : [],
         allPendingRequest : [],
+        allConnectionUsers : [],
     },
     reducers : {
         addUser : (state, action)=>{
@@ -18,11 +19,14 @@ let userSlice = createSlice({
         addPendingRequest : (state,action)=>{
             state.allPendingRequest = action.payload
         },
+        addAllConnection : (state, action) =>{
+            state.allConnectionUsers = action.payload
+        },
         removeUser : (state, action)=>{
             state.user = null
         }
     }
 });
 
-export let {addUser , addAllFeeds ,addPendingRequest, removeUser} = userSlice.actions;
+export let {addUser , addAllFeeds ,addPendingRequest, addAllConnection, removeUser} = userSlice.actions;
 export default userSlice.reducer;

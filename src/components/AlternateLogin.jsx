@@ -176,6 +176,11 @@ const AlternateLogin = () => {
                        <Link to="/signup"> Create New Account  </Link>
                     </p>
                 </form>
+                <p 
+                    className='cursor-pointer text-sm text-center mt-2 text-blue-400 hover:text-pink-500'
+                    >
+                    <Link to="/forgot-password"> Forgot Password </Link>
+                </p>
             </div>
         </div>       
     )

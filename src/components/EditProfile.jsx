@@ -15,7 +15,7 @@ const EditProfile = () => {
     let dispatch = useDispatch();
     let user = useSelector(store => store?.user?.user);
 
-    console.log("user ", user);
+    // console.log("user ", user);
 
     const animatedComponents = makeAnimated();
     let initialLanguages = [];

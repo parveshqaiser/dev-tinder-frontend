@@ -7,7 +7,7 @@ import { BASE_URL } from '../utils/apis';
 import { removeUser } from '../redux/userSlice';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-import { BsFillPersonPlusFill, BsFillHouseDoorFill ,BsKeyFill, BsWrench } from "react-icons/bs";
+import { BsFillPersonPlusFill, BsFillHouseDoorFill ,BsKeyFill, BsWrench , BsChatLeftDotsFill} from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";
 
 const Navbar = ({user}) => {
@@ -51,7 +51,7 @@ const Navbar = ({user}) => {
     return (
     <>
     <Toaster />
-    <div className="navbar bg-pink-500">
+    <div className="navbar bg-pink-500 m-0">
         <div className="flex-1">
             <span className="btn btn-ghost text-2xl text-white">Dev Tinder</span>
         </div>
@@ -121,6 +121,9 @@ const Navbar = ({user}) => {
                     </li>
                     <li>
                         <Link to='/friends' onClick={handleDropDown}><BsFillPersonPlusFill /> Friends</Link>
+                    </li>
+                    <li>
+                        <Link to='/message' onClick={handleDropDown}><BsChatLeftDotsFill /> Message</Link>
                     </li>
                    
                     <li>

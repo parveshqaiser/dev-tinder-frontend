@@ -20,9 +20,9 @@ const FriendsList = () => {
     },[]);
 
     useEffect(()=>{
-        if(searchText)
+        if(searchText && searchText.trim())
         {
-            let modify = !!alternateList && alternateList.filter(val => val?.fullName?.toLowerCase().includes(searchText.toLowerCase()))
+            let modify = !!alternateList && alternateList.filter(val => val?.fullName?.toLowerCase().includes(searchText.trim().toLowerCase()))
             setFriendsList(modify);
         }else {
             setFriendsList(alternateList);
@@ -62,16 +62,16 @@ const FriendsList = () => {
                 <input 
                     onChange={(e)=> setSearchText(e.target.value)}
                     type="text" 
-                    className='w-3/4 p-2 bg-fuchsia-200 rounded-lg outline-none  focus:ring-purple-300 focus:ring-1' 
+                    className='w-full p-2 bg-fuchsia-200 rounded-lg outline-none  focus:ring-purple-300 focus:ring-1' 
                     placeholder='Search Friends'
                 />
             </div>
             <hr className="my-2" />
-            <div>
+            <div className='overflow-auto h-80'>
                 <p className='mb-3'>{!!friendsList && friendsList.length} Friends</p>
                 {
                     !!friendsList  && friendsList.length ? friendsList.map(val=>(
-                        <div key={val._id} className='flex items-center my-3'>
+                        <div key={val._id} className='flex justify-between items-center my-3'>
                             <img src={val?.photoUrl || BACKUP_PROFILE_URL} className='w-16 h-16 rounded-full'/>
                             <span className='mx-5 font-semibold'>{val.fullName}</span>
                             <span 
@@ -81,7 +81,7 @@ const FriendsList = () => {
                                 ---
                             </span>
                         </div>
-                    )) :(!!friendsList && friendsList.length==0) ? <p>"{searchText}" not found.</p> :<p>Opps! Your Friend List is empty.</p>
+                    )) :(!!friendsList && friendsList.length==0) ? <p>  <span className='font-semibold'> "{searchText} "</span> not found.</p> :<p>Opps! Your Friend List is empty.</p>
                 }               
             </div>
         </div> 
