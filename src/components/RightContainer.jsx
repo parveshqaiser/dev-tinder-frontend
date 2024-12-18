@@ -10,11 +10,11 @@ import loading from "../../images/robot.gif";
 import { addSelectedUser } from '../redux/messageSlice';
 
 const RightContainer = () => {
-
+    
+    let dispatch = useDispatch();
     let selectedUser = useSelector(store=> store?.message?.selectedUser);
 
     let [allMessages , setAllMessages] = useState([]);
-    let dispatch = useDispatch();
     const [message , setMessage] = useState("");
     const [isDisabled , setIsDisabled] = useState(true);
 
@@ -45,7 +45,6 @@ const RightContainer = () => {
     },[])
 
     useEffect(()=>{
-        console.log("scroll called")
         scrollBar.current?.scrollIntoView({behavior : "smooth"});
     },[allMessages])
 
@@ -123,23 +122,3 @@ const RightContainer = () => {
 }
 
 export default RightContainer;
-
-
-/* 
-
-<div className="chat chat-end">
-    <div className="chat-image avatar">
-        <div className="w-10 rounded-full">
-            <img
-                alt="Receiver Avatar"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />
-        </div>
-    </div>
-    <div className="chat-bubble bg-indigo-400 text-white shadow-md">
-        Hi
-    </div>
-    <time className="text-xs text-gray-500">12:45</time>
-</div>
-
-*/
