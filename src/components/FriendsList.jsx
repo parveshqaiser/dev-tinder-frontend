@@ -108,7 +108,7 @@ const FriendsList = () => {
                         </p>
                        <span className='italic font-serif'> <FaLanguage className='inline'/> I Can Communicate well in</span>
                         <p className='flex justify-evenly text-gray-600 '>
-                            {storeProfile?.languages.map(lang=> <span className='px-4 py-1'>{lang}</span>)}
+                            {storeProfile?.languages.map(lang=> <span key={lang} className='px-4 py-1'>{lang}</span>)}
                         </p>
                         <span className='italic font-sans'><FaReact className='inline' /> Technologies that I know  </span>
                         <p className='flex flex-wrap justify-evenly text-gray-600'>

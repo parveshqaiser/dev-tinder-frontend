@@ -52,8 +52,10 @@ const RightContainer = () => {
     {
         let {value} = e.target;
         if(!value){
-            setIsDisabled(true)
+            setIsDisabled(true);
+            setMessage("");
         }else {
+            value = value.charAt(0).toUpperCase() +  value.slice(1);
             setMessage(value);
             setIsDisabled(false);
         }
@@ -75,19 +77,23 @@ const RightContainer = () => {
     }
 
     return (
-        <div className={`rounded-lg w-3/5 h-[85vh] flex flex-col shadow-lg mx-2 ${!selectedUser? "bg-slate-900" : ""}`}>
+        <div className={`rounded-lg w-3/5 h-[85vh] flex flex-col shadow-lg mx-2 ${!selectedUser? "bg-gradient-to-r from-pink-300 to-purple-400 my-1" : ""}`}>
         {
-            selectedUser == null ?  
-            <img src={loading}  className="w-56 m-auto"/> : (
+            selectedUser == null ? 
+            <div>
+                <img src={loading}  className="w-56 m-auto"/> 
+                <p className='text-center font-mono'>Welcome <span className='text-2xl font-bold text-purple-600'> Admin </span></p>
+                <p className='text-center font-mono'>Please Select a chat to start messaging</p>
+            </div> : (
             <>
-            <div className="flex items-center gap-x-4 my-2 p-2 bg-gradient-to-r from-purple-500 to-indigo-400 text-white rounded-t-md">
+            <div className="flex items-center gap-x-4 mt-1 p-2 bg-gradient-to-r from-purple-500 to-indigo-400 text-white rounded-t-md">
                 <div className="avatar online w-12  rounded-full">
                     <img src={selectedUser?.photoUrl ||"https://avatar.iran.liara.run/public/16"}  />
                 </div>
                 <p className="text-lg font-semibold">{selectedUser?.fullName || "John"}</p>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-100 space-y-4">
+            <div className="flex-1 overflow-y-auto p-2 bg-gradient-to-r from-blue-200 to-blue-300">
             {
                 allMessages && allMessages.length ? allMessages.map(user =>(
                 <div ref={scrollBar}  key={user?._id} className={`chat ${user?.fromUserId == selectedUser?._id ? "chat-start" : "chat-end"}`}>
@@ -97,7 +103,7 @@ const RightContainer = () => {
                     </div>
                     <time className="text-xs text-gray-500">12:45</time>
                 </div>
-                )) : <p className='text-center text-sm'>Say Hi to start a conversation</p>
+                )) : <p className='text-center text-sm font-mono'>Say Hi to start a conversation</p>
             } 
             </div>
 
