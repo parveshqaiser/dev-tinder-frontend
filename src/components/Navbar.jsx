@@ -9,6 +9,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { BsFillPersonPlusFill, BsFillHouseDoorFill ,BsKeyFill, BsWrench , BsChatLeftDotsFill} from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";
+import { IoMdHeartDislike } from "react-icons/io";
 
 const Navbar = ({user}) => {
 
@@ -39,6 +40,7 @@ const Navbar = ({user}) => {
                 setTimeout(()=>{
                     navigate("/login");
                     dispatch(removeUser());
+                    dispatch()
                 },1800); 
             }                  
 
@@ -51,9 +53,9 @@ const Navbar = ({user}) => {
     return (
     <>
     <Toaster />
-    <div className="navbar bg-pink-500 m-0">
+    <div className="navbar bg-gradient-to-r from-pink-400 to-pink-600 m-0">
         <div className="flex-1">
-            <span className="btn btn-ghost text-2xl text-white">Dev Tinder</span>
+            <span className="btn btn-ghost text-2xl text-white">Dev Tinder < IoMdHeartDislike /></span>
         </div>
 
         {user && <div className='text-white'>{user?.gender == "Male" ? "Mr " : "Miss "} <span className='font-semibold'>&nbsp; {user?.fullName}</span></div>}

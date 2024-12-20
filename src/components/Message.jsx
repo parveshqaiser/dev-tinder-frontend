@@ -1,11 +1,33 @@
 
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import LeftMessage from './LeftMessage';
 import RightContainer from './RightContainer';
 import useGetAllConnections from '../shared/useGetAllConnections';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import useGetAllMessages from '../shared/useGetAllMessages';
+import { SocketContext } from '../App';
+import { addAllMessages } from '../redux/messageSlice';
 
 const Message = () => {
+    let socket = useContext(SocketContext);
+
+    let dispatch = useDispatch();
+    useGetAllMessages();
+
+    let allMessages = useSelector(store => store?.message?.allMessages);
+    console.log("socket ",socket)
+    
+    useEffect(() => {
+        const handleNewMessage = (newMessage) => {
+            dispatch((prevState) => addAllMessages([...prevState.allMessages, newMessage]));
+        };
+    
+        socket?.on("addNewMessage", handleNewMessage);
+    
+        return () => {
+            socket?.off("addNewMessage", handleNewMessage);
+        };
+    }, [socket]);
 
     let {isLoading} = useGetAllConnections();
 

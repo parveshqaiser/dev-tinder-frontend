@@ -3,12 +3,14 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import userSlice from "./userSlice";
 import messageSlice from "./messageSlice";
+import socketSlice from "./socketSlice";
 
-let appStore = configureStore({
+let reduxStore = configureStore({
     reducer : {
         user : userSlice,
-        message : messageSlice
+        message : messageSlice,
+        socket : socketSlice
     }
 });
 
-export default appStore;
+export default reduxStore;

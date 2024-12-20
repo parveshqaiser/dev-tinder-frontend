@@ -6,6 +6,7 @@ import loading from "../../images/loveloading.gif";
 import { BACKUP_PROFILE_URL } from '../utils/constants';
 import { FaLanguage } from "react-icons/fa6";
 import { FaReact } from "react-icons/fa";
+import { BsEyeFill } from "react-icons/bs";
 
 const FriendsList = () => {
 
@@ -71,14 +72,14 @@ const FriendsList = () => {
                 <p className='mb-3'>{!!friendsList && friendsList.length} Friends</p>
                 {
                     !!friendsList  && friendsList.length ? friendsList.map(val=>(
-                        <div key={val._id} className='flex justify-between items-center my-3'>
+                        <div key={val._id} className='flex justify-around items-center my-3'>
                             <img src={val?.photoUrl || BACKUP_PROFILE_URL} className='w-16 h-16 rounded-full'/>
-                            <span className='mx-5 font-semibold'>{val.fullName}</span>
+                            <span className='mx-2 font-semibold'>{val.fullName}</span>
                             <span 
-                                className='mx-5 font-semibold text-gray-400 text-lg cursor-pointer' 
+                                className='mx-2 font-semibold text-gray-400 text-lg cursor-pointer' 
                                 title='View' 
                                 onClick={()=>setStoreProfile(val)}>
-                                ---
+                                <BsEyeFill />
                             </span>
                         </div>
                     )) :(!!friendsList && friendsList.length==0) ? <p>  <span className='font-semibold'> "{searchText} "</span> not found.</p> :<p>Opps! Your Friend List is empty.</p>
