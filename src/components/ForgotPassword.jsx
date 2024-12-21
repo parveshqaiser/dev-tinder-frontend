@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { BASE_URL } from '../utils/apis';
 import { useNavigate } from 'react-router-dom';
+import { FaUnlockAlt } from "react-icons/fa";
 
 const ForgotPassword = () => {
 
@@ -101,9 +102,11 @@ const ForgotPassword = () => {
 
 
     return(
-    <div className='max-w-lg mx-auto bg-pink-200 mt-10 border-2 shadow-md p-5'>
+    <div className='md:max-w-lg mx-auto bg-gradient-to-r from-pink-300 to-purple-400 mt-10 rounded-lg shadow-md p-5'>
         <Toaster  />
-        <p className='text-lg text-center text-pink-700 mb-2'>Forgot Password</p>
+        <div className='flex gap-x-2 justify-center'>
+            <p className='text-lg text-pink-700 mb-2'>Forgot Password </p><FaUnlockAlt size={24} />
+        </div>
         {showEmail && (
         <div className='mb-2'>
             <label className='block'>Your Current Email </label>
@@ -148,7 +151,7 @@ const ForgotPassword = () => {
         <div className='text-center'>
             <button 
                 onClick={()=>handleSubmit(showEmail ? "email" : "password")}
-                className="bg-pink-500 hover:bg-pink-600 w-1/2 p-2 rounded-md"
+                className="bg-pink-500 hover:bg-pink-600 w-1/2 p-2 rounded-md animated-button transition-all duration-300"
             >
                 {showEmail ? "Verify Email" : "Submit Password"}
             </button>
