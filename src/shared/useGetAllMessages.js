@@ -20,7 +20,6 @@ const useGetAllMessages = () => {
                     if(res.data.success)
                     {
                         dispatch(addAllMessages(res.data.getAllMessages.messages || []))
-                        // setAllMessages(res.data.getAllMessages.messages || [])
                     }
                 } catch (error) {
                     console.log("err getting all msg ", error);

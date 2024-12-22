@@ -13,6 +13,8 @@ const LeftMessage = ({isLoading ,allConnection}) => {
 
     let allOnlineUsers = useSelector(store => store?.socket?.allOnlineUsers);
 
+    console.log("allOnlineUsers in left container", allOnlineUsers)
+
     useEffect(()=>{
         if(searchText.trim() !=="")
         {

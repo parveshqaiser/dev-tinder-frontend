@@ -7,11 +7,11 @@
 .animated-button {
    background: linear-gradient(90deg, #ff69b4 50%, #ff1493 50%);
    background-size: 200% 100%;
-   background-position: left bottom;
+   background-position: left; 
    transition: background-position 0.3s ease-in-out, background-color 0.3s linear;
 }
 
 .animated-button:hover {
-   background-position: right bottom;
+   background-position: right; 
    color: wheat;
 }

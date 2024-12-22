@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import pic from "../../images/nicebg.jpg";
-// import pic from "../../images/date.jpg";
+import "../App.css"
 import validator from 'validator';
 import axios from 'axios';
 import { BASE_URL } from '../utils/apis';
@@ -165,7 +165,7 @@ const AlternateLogin = () => {
                         <button  disabled className="bg-pink-600 cursor-not-allowed w-full text-white px-6 py-2 rounded-md">
                             Logging...
                         </button> :  <button
-                            className="bg-pink-500 hover:bg-pink-600 w-full text-white px-6 py-2 rounded-md"
+                            className="animated-button w-full text-white px-6 py-2 rounded-md"
                             onClick={handleClick}
                         >
                             Submit

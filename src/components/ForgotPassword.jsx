@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { BASE_URL } from '../utils/apis';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUnlockAlt } from "react-icons/fa";
 
 const ForgotPassword = () => {
@@ -156,6 +156,8 @@ const ForgotPassword = () => {
                 {showEmail ? "Verify Email" : "Submit Password"}
             </button>
         </div>
+        <p className='underline text-sm text-center my-2'> <Link to="/login">Back to Login</Link></p>
+       
     </div>
     )
 }

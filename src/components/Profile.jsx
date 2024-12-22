@@ -35,8 +35,8 @@ const Profile = () => {
                     <h2 className="text-xl text-center font-semibold text-gray-700 my-2">Your Interests 📝</h2>
                     <p className="flex flex-wrap justify-evenly text-gray-600 gap-2">
                     {
-                        user && user?.skills && user?.skills?.map((val)=>(
-                        <span className="px-4 py-2 bg-gray-200 rounded-full"> {val}</span>
+                        user && user?.skills?.map((val)=>(
+                        <span className="px-4 py-2 bg-gray-200 rounded-full"> {val || "NA"}</span>
                         ))
                     }                        
                     </p>

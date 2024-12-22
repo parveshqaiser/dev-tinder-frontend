@@ -2,10 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import img from "../../images/reg.avif";
 import img1 from "../../images/signup.jpg"
+import img2 from "../../images/devBg.jpg";
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 import axios from 'axios';
 import { BASE_URL } from '../utils/apis';
 import toast, { Toaster } from 'react-hot-toast';
@@ -160,7 +159,7 @@ const SingUpPage = () => {
     <Toaster position='top-center' />
     <div
         className="min-h-screen bg-cover bg-center flex justify-center items-center"
-        style={{backgroundImage: `url(${img1})`, backgroundPosition:"center", backgroundSize:"cover"}}
+        style={{backgroundImage: `url(${img2})`, backgroundPosition:"center", backgroundSize:"cover"}}
     >
         <div className="w-full max-w-sm mx-auto p-6 bg-white bg-opacity-50 rounded-lg">
             <h2 className="text-black text-2xl font-semibold text-center mb-6">

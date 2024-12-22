@@ -7,27 +7,48 @@ import { useDispatch, useSelector } from 'react-redux';
 import useGetAllMessages from '../shared/useGetAllMessages';
 import { SocketContext } from '../App';
 import { addAllMessages } from '../redux/messageSlice';
+import { getSocket } from '../utils/socket';
 
 const Message = () => {
-    let socket = useContext(SocketContext);
+    // let socket = useContext(SocketContext);
+
+    // console.log("socket ",socket)
 
     let dispatch = useDispatch();
     useGetAllMessages();
 
     let allMessages = useSelector(store => store?.message?.allMessages);
-    console.log("socket ",socket)
     
-    useEffect(() => {
-        const handleNewMessage = (newMessage) => {
-            dispatch((prevState) => addAllMessages([...prevState.allMessages, newMessage]));
-        };
+    // useEffect(() => {
+    //     socket?.current?.on("addNewMessage",(newMsg)=>{
+    //         dispatch(addAllMessages([...allMessages,newMsg]))
+    //         console.log("newMsg ", newMsg)
+    //     });
+       
     
-        socket?.on("addNewMessage", handleNewMessage);
+    //     return () => {
+    //         socket?.current?.disconnect();
+    //     };
+    // }, [socket, allMessages]);
+
+    useEffect(()=>{
+        const socket = getSocket(); 
+        console.log("********* socket ", socket);
+
+        if (socket) 
+        {
+            socket.on("addNewMessage", (message) => {
+                dispatch(addAllMessages([...allMessages,message]))
+            });
+        }
     
         return () => {
-            socket?.off("addNewMessage", handleNewMessage);
+            if (socket) 
+            {
+                socket.off("newMessage");
+            }
         };
-    }, [socket]);
+    },[allMessages])
 
     let {isLoading} = useGetAllConnections();
 
