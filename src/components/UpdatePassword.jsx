@@ -104,7 +104,7 @@ const UpdatePassword = () => {
 
     return (
         <div className='max-w-lg mx-auto mt-10 border-2 shadow-md p-5'>
-            <Toaster  />
+            {/* <Toaster  /> */}
             <p className='text-lg text-center text-pink-700 mb-2'>Update Password</p>
             <div className='mb-2'>
                 <label className='block'>Your Current Password <span className='text-red-600'>*</span></label>

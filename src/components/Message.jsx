@@ -18,23 +18,9 @@ const Message = () => {
     useGetAllMessages();
 
     let allMessages = useSelector(store => store?.message?.allMessages);
-    
-    // useEffect(() => {
-    //     socket?.current?.on("addNewMessage",(newMsg)=>{
-    //         dispatch(addAllMessages([...allMessages,newMsg]))
-    //         console.log("newMsg ", newMsg)
-    //     });
-       
-    
-    //     return () => {
-    //         socket?.current?.disconnect();
-    //     };
-    // }, [socket, allMessages]);
 
     useEffect(()=>{
         const socket = getSocket(); 
-        console.log("********* socket ", socket);
-
         if (socket) 
         {
             socket.on("addNewMessage", (message) => {

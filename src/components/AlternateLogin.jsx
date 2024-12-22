@@ -7,6 +7,8 @@ import axios from 'axios';
 import { BASE_URL } from '../utils/apis';
 import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { BsEyeFill } from "react-icons/bs";
+import { FaEyeSlash } from "react-icons/fa";
 
 const AlternateLogin = () => {
 
@@ -17,9 +19,9 @@ const AlternateLogin = () => {
 
     let navigate = useNavigate();
 
-    let [isDisabled, setIsDisabled] = useState(false);
-
+    const [isDisabled, setIsDisabled] = useState(false);
     const [isOnline, setIsOnline] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(()=>{
         window.addEventListener("online",()=>{
@@ -35,6 +37,10 @@ const AlternateLogin = () => {
         })
     },[]);
 
+    function handleTogglePassword()
+    {
+        setShowPassword(!showPassword);
+    }
 
     function handleChange(e)
     {
@@ -125,7 +131,7 @@ const AlternateLogin = () => {
             <div className="w-full md:w-3/5 bg-cover bg-center object-cover m-2">
                 <img src={pic} className="rounded-lg min-h-screen" />
             </div>
-            <Toaster />
+            {/* <Toaster /> */}
             <div className="w-full md:w-2/6 p-3 mx-5 md:mt-10">
                 <h2 className="text-xl md:text-2xl font-bold mb-2 text-center text-pink-500">Dev Tinder</h2>
                 <p className="text-center mb-2">Date❤️, Make Friends & meet new people👦👧</p>
@@ -142,22 +148,29 @@ const AlternateLogin = () => {
                         />
                         <span className="text-red-600 text-sm">{formValues.email.error}</span>
                     </div>
-                    <div className="relative">
+                    <div className="">
                         <label className="block text-pink-400">Password</label>
-                        <input
-                            type='password'
-                            placeholder="Minimum 5 characters"
-                            onChange={handleChange}
-                            value={formValues.password.value}
-                            name="password"
-                            className="w-full px-3 py-2 rounded-md focus:outline-pink-500 focus:ring-1"
-                        />
-                        {/* <FontAwesomeIcon 
-                          onClick={handleTogglePassword}
-                            icon={!showPassword ? faEyeSlash : faEye} 
-                            className={`absolute myClass right-3 text-gray-500 cursor-pointer`}
-                        /> */}
-                        <span className="text-red-600 text-sm">{formValues.password.error} </span>
+                        <div className="relative w-full">
+                            <input
+                                type={showPassword ? "text":"password"}
+                                placeholder="Minimum 5 characters"
+                                onChange={handleChange}
+                                value={formValues.password.value}
+                                name="password"
+                                className="w-full px-3 py-2 rounded-md focus:outline-pink-500 focus:ring-1"
+                            />
+                            {showPassword ? <BsEyeFill
+                                onClick={handleTogglePassword}
+                                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                size={22} 
+                            /> : <FaEyeSlash  
+                                    size={22}
+                                    onClick={handleTogglePassword}
+                                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                />
+                            }                           
+                        </div>
+                        <span className="text-red-600 text-sm">{formValues.password.error}</span>
                     </div>
                     <div>
                     {

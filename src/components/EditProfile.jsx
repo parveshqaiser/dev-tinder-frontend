@@ -211,7 +211,7 @@ const EditProfile = () => {
 
     return(
     <>
-    <Toaster />
+    {/* <Toaster /> */}
         {user && (
             <nav className='flex max-w-5xl justify-around'>
             <div className='w-1/3 mx-5 mt-5 p-2 sticky top-5 h-64'>

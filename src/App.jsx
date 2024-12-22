@@ -18,6 +18,7 @@ import { addAllOnlineUsers} from './redux/socketSlice';
 
 
 import { disconnectSocket, getSocket } from './utils/socket'
+import { Toaster } from 'react-hot-toast'
 
 
 let SocketContext = createContext();
@@ -54,6 +55,7 @@ function App() {
     <>
     <SocketContext.Provider value={socketRef}>
       <BrowserRouter basename='/'>     
+      <Toaster />
         <Routes>
           <Route path='/' element={<AlternateLogin />}></Route>
           <Route path='/login' element={<AlternateLogin />}></Route>
@@ -70,7 +72,8 @@ function App() {
               <Route path='/message' element={<Message />}></Route>                   
           </Route>
           <Route path='*' element={<h1 className='text-center mt-2 text-red-400 font-semibold'> 404 !!!Requested Page Not Found</h1>}></Route>
-        </Routes>       
+        </Routes>     
+        {/* </Toaster>   */}
       </BrowserRouter>
       </SocketContext.Provider>
       </>

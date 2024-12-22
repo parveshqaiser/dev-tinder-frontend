@@ -52,7 +52,7 @@ const Navbar = ({user}) => {
 
     return (
     <>
-    <Toaster />
+    {/* <Toaster /> */}
     <div className="navbar bg-gradient-to-r from-pink-400 to-pink-600 m-0">
         <div className="flex-1">
             <span className="btn btn-ghost text-2xl text-white">Dev Tinder < IoMdHeartDislike /></span>
