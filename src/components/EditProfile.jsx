@@ -150,7 +150,6 @@ const EditProfile = () => {
     function handleFileChange(e)
     {
         let file = e.target.files[0];
-        console.log(file);
         setFormValues({...formValues , photoUrl : {...formValues.photoUrl , value : file}});
     }
 
@@ -357,14 +356,3 @@ const EditProfile = () => {
 export default EditProfile
 
 // sticky top-0 h-52
-
-// bg-pink-500 hover:bg-pink-600 w-full text-white px-6 py-2 rounded-md
-
- // if(user && Object.keys(user).length >0) {
-    //     for(let lang of user.languages){
-    //         if(lang == "Hindi" || lang == "English" || lang == "Spanish" || lang == "French" || lang =="German" || lang =="Telegu" || lang =="Urdu" || lang =="Bengali")
-    //         {
-    //             initialLanguages.push({label : lang , value : lang});
-    //         }
-    //     }
-    // }

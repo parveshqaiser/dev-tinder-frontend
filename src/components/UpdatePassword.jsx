@@ -3,7 +3,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/apis';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { GrUpdate } from "react-icons/gr";
 
 const UpdatePassword = () => {
 
@@ -103,49 +104,50 @@ const UpdatePassword = () => {
     }
 
     return (
-        <div className='max-w-lg mx-auto mt-10 border-2 shadow-md p-5'>
-            {/* <Toaster  /> */}
-            <p className='text-lg text-center text-pink-700 mb-2'>Update Password</p>
-            <div className='mb-2'>
-                <label className='block'>Your Current Password <span className='text-red-600'>*</span></label>
-                <input 
-                    onChange={handleChange}
-                    type='password' 
-                    value={formValues.currentPassword.value}
-                    name='currentPassword'
-                    className='w-full p-2 rounded-lg outline-none focus:ring-purple-40000 focus:ring-1' 
-                />
-                <span className='text-red-500 text-sm'>{formValues.currentPassword.error}</span>
-            </div>
-            <div className='mb-2'>
-                <label className='block'>Your New Password <span className='text-red-600'>*</span></label>
-                <input 
-                    onChange={handleChange}
-                    type='password' 
-                    value={formValues.newPassword.value}
-                    name='newPassword'
-                    className='w-full p-2 rounded-lg outline-none  focus:ring-purple-500 focus:ring-1'
-                />
-                <span className='text-red-500 text-sm'>{formValues.newPassword.error}</span>
-            </div>
-            <div className='mb-2'>
-                <label className='block'>Confirm New Password <span className='text-red-600'>*</span></label>
-                <input 
-                    onChange={handleChange} 
-                    type='password' 
-                    value={formValues.confirmPassword.value}
-                    name='confirmPassword'
-                    className='w-full p-2 outline-none rounded-lg  focus:ring-purple-500 focus:ring-1' 
-                />
-                <span className='text-red-500 text-sm'>{formValues.confirmPassword.error}</span>
-            </div>
-            <div className='text-center'>
-                <button 
-                    onClick={handleSubmit}
-                    className="bg-pink-500 hover:bg-pink-600 w-1/4 p-2 rounded-md"
-                >Submit</button>
-            </div>
+    <div className='sm:max-w-lg sm:mx-auto mt-10 border-2 shadow-md p-3 rounded-lg mx-2'>
+        <header className='flex gap-x-2 justify-center items-center'>
+            <p className='text-lg text-center text-pink-700 mb-2'>Update Password </p><GrUpdate />
+        </header>        
+        <div className='mb-2'>
+            <label className='block'>Your Current Password <span className='text-red-600'>*</span></label>
+            <input 
+                onChange={handleChange}
+                type='password' 
+                value={formValues.currentPassword.value}
+                name='currentPassword'
+                className='w-full p-2 rounded-lg outline-none focus:ring-purple-500 focus:ring-1' 
+            />
+            <span className='text-red-500 text-sm'>{formValues.currentPassword.error}</span>
         </div>
+        <div className='mb-2'>
+            <label className='block'>Your New Password <span className='text-red-600'>*</span></label>
+            <input 
+                onChange={handleChange}
+                type='password' 
+                value={formValues.newPassword.value}
+                name='newPassword'
+                className='w-full p-2 rounded-lg outline-none  focus:ring-purple-500 focus:ring-1'
+            />
+            <span className='text-red-500 text-sm'>{formValues.newPassword.error}</span>
+        </div>
+        <div className='mb-2'>
+            <label className='block'>Confirm New Password <span className='text-red-600'>*</span></label>
+            <input 
+                onChange={handleChange} 
+                type='password' 
+                value={formValues.confirmPassword.value}
+                name='confirmPassword'
+                className='w-full p-2 outline-none rounded-lg  focus:ring-purple-500 focus:ring-1' 
+            />
+            <span className='text-red-500 text-sm'>{formValues.confirmPassword.error}</span>
+        </div>
+        <div className='text-center'>
+            <button 
+                onClick={handleSubmit}
+                className="bg-pink-500 hover:bg-pink-600 w-1/4 p-2 rounded-md"
+            >Submit</button>
+        </div>
+    </div>
     )
 }
 
