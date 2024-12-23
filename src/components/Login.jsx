@@ -10,7 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { BsEyeFill } from "react-icons/bs";
 import { FaEyeSlash } from "react-icons/fa";
 
-const AlternateLogin = () => {
+const Login = () => {
 
     const [formValues , setFormValues] = useState({
         email: {value :"", error :""}, 
@@ -199,4 +199,4 @@ const AlternateLogin = () => {
     )
 }
 
-export default AlternateLogin;
+export default Login;

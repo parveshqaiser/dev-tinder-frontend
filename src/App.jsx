@@ -3,7 +3,7 @@ import { BrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom'
 import './App.css'
 import HomePage from './components/HomePage'
 import SingUpPage from './components/SingUpPage'
-import AlternateLogin from './components/Login'
+import Login from './components/Login'
 import {useDispatch, useSelector } from 'react-redux'
 import Profile from './components/Profile'
 import EditProfile from './components/EditProfile'
@@ -57,8 +57,8 @@ function App() {
       <BrowserRouter basename='/'>     
       <Toaster />
         <Routes>
-          <Route path='/' element={<AlternateLogin />}></Route>
-          <Route path='/login' element={<AlternateLogin />}></Route>
+          <Route path='/' element={<Login />}></Route>
+          <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<SingUpPage />}></Route>
           <Route path='/forgot-password' element={<ForgotPassword />}></Route>  
 
