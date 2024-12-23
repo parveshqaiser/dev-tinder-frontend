@@ -3,15 +3,14 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { IoMdSend } from "react-icons/io";
-import { connect, useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
 import { BASE_URL } from '../utils/apis';
 
 import loading from "../../images/robot.gif";
 import { addAllMessages, addSelectedUser } from '../redux/messageSlice';
 
 
-const RightContainer = () => {
-
+const RightMessageBox = () => {
 
     let dispatch = useDispatch();
     let selectedUser = useSelector(store=> store?.message?.selectedUser);
@@ -50,10 +49,8 @@ const RightContainer = () => {
         try {
             let res = await axios.post(BASE_URL+ `/send/message/${selectedUser?._id}`,{message},{withCredentials:true});
             if(res.data.success){
-                // setAllMessages([...allMessages,res.data.addNewMessage])
                 dispatch(addAllMessages([...allMessages, res.data.addNewMessage]))
             }
-
         } catch (error) {
             console.log("error in sending msg" ,error)
         }       
@@ -62,7 +59,7 @@ const RightContainer = () => {
     }
 
     return (
-        <div className={`rounded-lg w-3/5 h-[85vh] flex flex-col shadow-lg mx-2 ${!selectedUser? "bg-gradient-to-r from-pink-300 to-purple-400 my-1" : ""}`}>
+        <div className={`rounded-lg w-full lg:w-3/5 lg:h-[85vh] flex flex-col shadow-lg lg:mx-2 mx-1 ${!selectedUser? "bg-gradient-to-r from-pink-300 to-purple-400 my-1" : ""}`}>
         {
             selectedUser == null ? 
             <div>
@@ -117,4 +114,4 @@ const RightContainer = () => {
     )
 }
 
-export default RightContainer;
+export default RightMessageBox;

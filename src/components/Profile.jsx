@@ -10,22 +10,24 @@ const Profile = () => {
     return (
         <>
         <nav className="mt-5">
-            <div className="flex items-center justify-center max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border-2 p-2">
-                <div className="w-1/3 h-1/4 p-3">
+            <div className="flex flex-col lg:flex-row items-center justify-center max-w-4xl mx-auto bg-gradient-to-r from-pink-200 to-purple-300  shadow-lg rounded-lg overflow-hidden border-2 p-2">
+                {/* image container */}
+                <div className="sm:w-1/3 sm:h-1/4 sm:p-3 w-full m-2">
                     <img
                         className=" object-cover rounded-full border-4 border-gray-300"
                         src={user?.photoUrl}
                         alt="profile"
                     />
                 </div>
-                <div className="w-2/3 pl-4">
-                    <h1 className="text-3xl font-semibold text-gray-800">{user?.fullName}</h1>
-                    <h2 className="text-lg text-gray-600 font-medium mt-1">{user?.email}</h2>
-                    <p className="italic text-gray-500 mt-2">
-                        {user?.bio}
-                    </p>
+
+                {/* right details */}
+                <div className="md:w-2/3 md:pl-4 pl-2">
+                    <p className="text-3xl font-semibold text-gray-800">{user?.fullName}</p>
+                    <p className="text-lg text-gray-600 font-medium mt-1">{user?.email}</p>
+                    <p className="italic text-gray-500 mt-2">{user?.bio}</p>
 
                     <hr className="my-3 border-gray-300" />
+                    
                     <div className="flex justify-start gap-x-8 text-gray-600">
                         <span className="">♀ / ♂️ {user?.gender}</span>
                         <span className="">🔞 {user?.age}</span>
@@ -56,9 +58,6 @@ const Profile = () => {
                 </div>
             </div>
         </nav>
-        <section>
-            
-        </section>
         </>
     )
 }

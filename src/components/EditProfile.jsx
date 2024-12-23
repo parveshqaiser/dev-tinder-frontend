@@ -246,107 +246,108 @@ const EditProfile = () => {
     return(
     <>
     {user && (
-        <nav className='flex max-w-5xl justify-around'>
-        <div className='w-1/3 mx-5 mt-5 p-2 sticky top-5 h-64'>
-            <img className='rounded-lg' src={user?.photoUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT0M9PkaDKnCMW8NANGmmvjkS-WhhsIOe4pQ&s"}/>
-        </div>
-        <div className='w-2/3 mx-10 border-2 p-2  mt-5 '>
-            <h1 className='font-semibold text-black text-center'>Update Profile</h1>
-            <form onSubmit={(e)=> e.preventDefault()}> 
-                <div className='mb-3'>
-                    <input 
-                        type='text' 
-                        value={formValues.fullName.value} 
-                        name="fullName" 
-                        onChange={handleChange} 
-                        className='w-full px-2 py-2 outline-none bg-gray-200 rounded-md' 
-                        placeholder='Your Full Name' 
-                    />
-                    <span className='text-red-400 text-sm'>{formValues.fullName.error}</span>
-                </div>
-                <div className='mb-3'>
-                    <input 
-                        type='email' 
-                        value={formValues.email.value} 
-                        className='w-full px-2 py-2 cursor-not-allowed outline-none bg-gray-200 rounded-md' 
-                        disabled 
-                    />
-                    <span className='text-red-400 text-sm'></span>
-                </div>
-                <div className='mb-3'>
-                    <input 
-                        type='text' 
-                        name="age" 
-                        maxLength={2}
-                        value={formValues.age.value} 
-                        onChange={handleChange} 
-                        className='w-full px-2 py-2 outline-none bg-gray-200 rounded-md' 
-                        placeholder='Your Age' 
-                    />
-                    <span className='text-red-400 text-sm'>{formValues.age.error}</span>
-                </div>
-                <div className='mb-3'>
-                    <textarea 
-                        name="bio" 
-                        value={formValues.bio.value} 
-                        onChange={handleChange} 
-                        className='w-full px-2 py-2 outline-none bg-gray-200 rounded-md' 
-                        placeholder='Your Bio' 
-                    />
-                    <span className='text-red-400 text-sm'>{formValues.bio.error}</span>
-                </div>
-                <div className='mb-3'>
-                    <select name='gender' value={formValues.gender.value} onChange={handleChange} className="w-full px-2 py-2 border rounded-lg text-gray-800 outline-none">
-                        <option value={""}>Select Your Gender</option>
-                        <option value={"Male"}> ♂️ Male</option>
-                        <option value={"Female"}>♀ Female</option>
-                        <option value={"Others"}>Others</option>
-                    </select>
-                    <span className='text-red-400 text-sm'>{formValues.gender.error}</span>
-                </div>
-                <div className='mb-3'>
-                    <Select 
-                        isMulti 
-                        placeholder="Spoken Languages"
-                        options={languageList} 
-                        // value={selectedLanguages} 
-                        value={formValues.lang}
-                        onChange={handleLanguage} 
-                        closeMenuOnSelect={false} 
-                        components={animatedComponents}                               
-                    />
-                </div>
-                <div className='mb-2'>
-                    <Select 
-                        placeholder="Select Your Interest"
-                        options={interestList}
-                        isMulti 
-                        // value={selectedInterest} 
-                        value={formValues.skills}
-                        onChange={handleSkills} 
-                        closeMenuOnSelect={false} 
-                        components={animatedComponents}                                 
-                    />
-                </div>
-                <div className='mb-2'>
-                    <label>Please Upload Profile Picture</label>
-                    <input 
-                        accept="image/png,image/jpeg"
-                        type="file" 
-                        name='profilePicture'
-                        className="w-full px-2 py-2"
-                        onChange={handleFileChange}
-                    />
-                </div>
-                <button
-                    disabled={isDisabled}
-                    className={`${isDisabled ? "cursor-not-allowed" : ""} bg-pink-500 hover:bg-pink-600 w-full text-white px-6 py-2 rounded-md`} 
-                    onClick={handleClick}
-                >
-                    {isDisabled ? "Updating..." : "Update"}
-                </button>
-            </form>
-        </div>
+        <nav className='flex flex-col md:flex-row max-w-5xl justify-around md:p-2'>
+            <div className='w-full md:w-1/3 md:mx-5 mt-5 p-2 md:sticky md:top-5 md:h-64'>
+                <img className='rounded-lg' src={user?.photoUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT0M9PkaDKnCMW8NANGmmvjkS-WhhsIOe4pQ&s"}/>
+            </div>
+            {/* w-full md:w-1/3 mx-auto mt-5 md:mt-0 flex justify-center */}
+            {/* w-full md:w-2/3 mx-auto border-2 p-4 mt-5 md:mt-0 */}
+            
+            <div className='w-full md:w-2/3 mx-auto  p-4 mt-5 md:mt-0'>
+                <h1 className='font-semibold text-center md:text-xl mb-4'>Edit Profile</h1>
+                <form onSubmit={(e)=> e.preventDefault()}> 
+                    <div className='mb-3'>
+                        <input 
+                            type='text' 
+                            value={formValues.fullName.value} 
+                            name="fullName" 
+                            onChange={handleChange} 
+                            className='w-full px-2 py-2 outline-none bg-gray-200 rounded-md' 
+                            placeholder='Your Full Name' 
+                        />
+                        <span className='text-red-400 text-sm'>{formValues.fullName.error}</span>
+                    </div>
+                    <div className='mb-3'>
+                        <input 
+                            type='email' 
+                            value={formValues.email.value} 
+                            className='w-full px-2 py-2 cursor-not-allowed outline-none bg-gray-200 rounded-md' 
+                            disabled 
+                        />
+                        <span className='text-red-400 text-sm'></span>
+                    </div>
+                    <div className='mb-3'>
+                        <input 
+                            type='text' 
+                            name="age" 
+                            maxLength={2}
+                            value={formValues.age.value} 
+                            onChange={handleChange} 
+                            className='w-full px-2 py-2 outline-none bg-gray-200 rounded-md' 
+                            placeholder='Your Age' 
+                        />
+                        <span className='text-red-400 text-sm'>{formValues.age.error}</span>
+                    </div>
+                    <div className='mb-3'>
+                        <textarea 
+                            name="bio" 
+                            value={formValues.bio.value} 
+                            onChange={handleChange} 
+                            className='w-full px-2 py-2 outline-none bg-gray-200 rounded-md' 
+                            placeholder='Your Bio' 
+                        />
+                        <span className='text-red-400 text-sm'>{formValues.bio.error}</span>
+                    </div>
+                    <div className='mb-3'>
+                        <select name='gender' value={formValues.gender.value} onChange={handleChange} className="w-full px-2 py-2 border rounded-lg text-gray-800 outline-none">
+                            <option value={""}>Select Your Gender</option>
+                            <option value={"Male"}> ♂️ Male</option>
+                            <option value={"Female"}>♀ Female</option>
+                            <option value={"Others"}>Others</option>
+                        </select>
+                        <span className='text-red-400 text-sm'>{formValues.gender.error}</span>
+                    </div>
+                    <div className='mb-3'>
+                        <Select 
+                            isMulti 
+                            placeholder="Spoken Languages"
+                            options={languageList} 
+                            value={formValues.lang}
+                            onChange={handleLanguage} 
+                            closeMenuOnSelect={false} 
+                            components={animatedComponents}                               
+                        />
+                    </div>
+                    <div className='mb-2'>
+                        <Select 
+                            placeholder="Select Your Interest"
+                            options={interestList}
+                            isMulti 
+                            value={formValues.skills}
+                            onChange={handleSkills} 
+                            closeMenuOnSelect={false} 
+                            components={animatedComponents}                                 
+                        />
+                    </div>
+                    <div className='mb-2'>
+                        <label>Please Upload Profile Picture</label>
+                        <input 
+                            accept="image/png,image/jpeg"
+                            type="file" 
+                            name='profilePicture'
+                            className="w-full px-2 py-2"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+                    <button
+                        disabled={isDisabled}
+                        className={`${isDisabled ? "cursor-not-allowed" : ""} bg-pink-500 hover:bg-pink-600 w-full text-white px-6 py-2 rounded-md`} 
+                        onClick={handleClick}
+                    >
+                        {isDisabled ? "Updating..." : "Update"}
+                    </button>
+                </form>
+            </div>
         </nav>
     )}
     </>

@@ -1,13 +1,14 @@
 
 import React, { useContext, useEffect } from 'react'
-import LeftMessage from './LeftMessage';
-import RightContainer from './RightContainer';
 import useGetAllConnections from '../shared/useGetAllConnections';
 import { useDispatch, useSelector } from 'react-redux';
 import useGetAllMessages from '../shared/useGetAllMessages';
 import { SocketContext } from '../App';
 import { addAllMessages } from '../redux/messageSlice';
 import { getSocket } from '../utils/socket';
+import RightMessageBox from './RightMessageBox';
+import LeftMessageBox from './LeftMessageBox';
+
 
 const Message = () => {
     // let socket = useContext(SocketContext);
@@ -41,9 +42,9 @@ const Message = () => {
     let allConnection = useSelector(store => store?.user?.allConnectionUsers);
 
     return (
-        <div className='flex'>        
-            <LeftMessage isLoading={isLoading} allConnection ={allConnection}/>
-            <RightContainer />
+        <div className='flex flex-col lg:flex-row'>        
+            <LeftMessageBox isLoading={isLoading} allConnection ={allConnection}/>
+            <RightMessageBox />
         </div>
     )
 }

@@ -55,9 +55,9 @@ const FriendsList = () => {
     }
 
     return (
-    <nav className='mt-5 flex'>
+    <nav className='mt-5 flex flex-col lg:flex-row'>
         {/* right */}
-        <div className='w-1/4 mx-8 p-2 rounded-lg bg-white'>
+        <div className='w-full lg:w-1/4 lg:mx-8 p-2 rounded-lg bg-white'>
             <span className='text-sm'>All Connections</span>
             <div className='my-2'>
                 <input 
@@ -72,7 +72,7 @@ const FriendsList = () => {
                 <p className='mb-3'>{!!friendsList && friendsList.length} Friends</p>
                 {
                     !!friendsList  && friendsList.length ? friendsList.map(val=>(
-                        <div key={val._id} className='flex justify-around items-center my-3'>
+                        <div key={val._id} className='flex justify-between items-center my-3'>
                             <img src={val?.photoUrl || BACKUP_PROFILE_URL} className='w-16 h-16 rounded-full'/>
                             <span className='mx-2 font-semibold'>{val.fullName}</span>
                             <span 
@@ -88,8 +88,8 @@ const FriendsList = () => {
         </div> 
 
         {/* left */}
-        <div className="w-2/3 rounded-lg sticky top-0 min-h-56">
-            <div className="w-full bg-gray-[150] shadow-lg rounded-lg p-2 flex flex-col items-center">
+        <div className="w-full lg:w-2/3 rounded-lg sticky top-0 min-h-56 bg-gradient-to-r from-pink-200 to-purple-300">
+            <div className="w-full rounded-lg p-2 flex flex-col items-center">
                 {!storeProfile ? (
                     <p className="font-bold p-5 text-center text-lg text-gray-700">
                         Select People's Name to preview their profile.
@@ -124,4 +124,4 @@ const FriendsList = () => {
     )
 }
 
-export default FriendsList
+export default FriendsList;

@@ -51,14 +51,16 @@ const Navbar = ({user}) => {
     }
 
     return (
-    <>
-    {/* <Toaster /> */}
     <div className="navbar bg-gradient-to-r from-pink-400 to-pink-600 m-0">
         <div className="flex-1">
-            <span className="btn btn-ghost text-2xl text-white">Dev Tinder < IoMdHeartDislike /></span>
+            <span className="btn btn-ghost text-2xl sm:text-2xl text-white">Dev Tinder < IoMdHeartDislike /></span>
         </div>
 
-        {user && <div className='text-white'>{user?.gender == "Male" ? "Mr " : "Miss "} <span className='font-semibold'>&nbsp; {user?.fullName}</span></div>}
+        {user && 
+            <div className='hidden sm:flex text-white mr-4 items-center'>
+                {user?.gender == "Male" ? "Mr " : "Miss "}<span className='font-semibold ml-1 truncate'>&nbsp; {user?.fullName}</span>
+            </div>
+        }
 
         <button role="button" tabIndex={1} className="btn btn-ghost btn-circle">
             <div className="indicator dropdown dropdown-end">
@@ -159,8 +161,6 @@ const Navbar = ({user}) => {
             </div>
         </dialog>
     </div>
-    </>
-    
     )
 }
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addSelectedUser } from '../redux/messageSlice';
 
-const LeftMessage = ({isLoading ,allConnection}) => {
+const LeftMessageBox = ({isLoading ,allConnection}) => {
 
     let dispatch = useDispatch();
 
@@ -30,8 +30,7 @@ const LeftMessage = ({isLoading ,allConnection}) => {
     }
 
     return (
-        <div className="rounded-lg w-1/4 h-[85vh] flex flex-col mx-3">
-
+        <div className="w-full lg:w-1/4 h-[85vh] flex flex-col lg:mx-3 rounded-lg">
             <div className="my-2 px-3">
                 <input
                     placeholder="Search Friends..."
@@ -71,6 +70,6 @@ const LeftMessage = ({isLoading ,allConnection}) => {
     )
 }
 
-export default LeftMessage;
+export default LeftMessageBox;
 
 // https://avatar.iran.liara.run/public/16
