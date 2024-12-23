@@ -7,6 +7,7 @@ import validator from 'validator';
 import axios from 'axios';
 import { BASE_URL } from '../utils/apis';
 import toast, { Toaster } from 'react-hot-toast';
+import "../App.css";
 
 const SingUpPage = () => {
 
@@ -154,123 +155,106 @@ const SingUpPage = () => {
     }
 
     return (
-    <>
-        {/* <Toaster position='top-center' /> */}
-        <div 
-            className="min-h-screen flex items-center justify-center" 
-            style={{
-                backgroundImage: `url(${bg})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-            }}
-        >
-            <div className="w-full max-w-xl mx-auto p-6 bg-white bg-opacity-50 rounded-lg">
-                <h1 className="text-2xl font-bold text-gray-800 text-center mb-2">
-                    Create Your DevTinder Account
-                </h1>
-                <p className="text-md font-mono text-center mb-3">Connect with developers around the world.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className=''>
-                        {/* <label className="block text-sm font-medium text-gray-700">FullNAme</label> */}
-                        <input 
-                            value={formValues.fullName.value}
-                            placeholder="Your full name"
-                            type="text" 
-                            onChange={handleChange}
-                            autoComplete="off"
-                            name="fullName"
-                           className="w-full px-3 py-2 border rounded-lg text-gray-800 outline-none"
-                        />
-                        <span className="text-sm text-red-600">{formValues.fullName.error}</span>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700"></label>
-                        <input 
-                            value={formValues.email.value}
-                            placeholder="Your Email Address"
-                            type="text" 
-                            onChange={handleChange}
-                            autoComplete="off"
-                            name="email"
-                            className="w-full px-3 py-2 border rounded-lg text-gray-800 outline-none"
-                        />
-                        <span className="text-sm text-red-600">{formValues.email.error}</span>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700"></label>
-                        <input 
-                            value={formValues.password.value}
-                            placeholder="Set Your Password"
-                            type="password" 
-                            onChange={handleChange}
-                            autoComplete="off"
-                            name="password"
-                            className='w-full px-3 py-2 border rounded-lg text-gray-800 outline-none'
-                        />
-                       <span className="text-sm text-red-600">{formValues.password.error}</span>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700"></label>
-                        <input 
-                            value={formValues.age.value}
-                            placeholder="Your Age"
-                            type="text" 
-                            onChange={handleChange}
-                            autoComplete="off"
-                            name="age"
-                            className='w-full px-3 py-2 border rounded-lg text-gray-800 outline-none'
-                        />
-                        <span className="text-sm text-red-600">{formValues.age.error}</span>
-                    </div>
-                    <div className="mb-2 sm:col-span-2">
-                        <select 
-                            name="gender" 
-                            onChange={handleChange} 
-                            className="w-full px-3 py-2 border rounded-lg text-gray-800 outline-none"
-                        >
-                            <option value="">Select Your Gender</option>
-                            <option value="Male">♂️ Male</option>
-                            <option value="Female">♀ Female</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <span className="text-sm text-red-600">{formValues.gender.error}</span>
-                    </div>
-                    <div className="sm:col-span-2">
-                        <textarea
-                            name="bio"
-                            value={formValues.bio.value}
-                            onChange={handleChange}
-                            placeholder="Tell something about yourself..."
-                            className="w-full px-3 py-2 border rounded-lg text-gray-800 outline-none"
-                        />
-                        <span className="text-sm  text-red-600">{formValues.bio.error}</span>
-                    </div>
-                    <div className='sm:col-span-2'>
-                    {
-                        isDisabled ?  
-                        <button  disabled className="bg-pink-600 cursor-not-allowed w-full text-white px-6 py-2 rounded-md">
-                            Submitting...
-                        </button> :  <button
-                            className="bg-pink-500 hover:bg-pink-600 w-full text-white px-6 py-2 rounded-md"
-                            onClick={handleSubmit}
-                        >
-                            Submit
-                        </button>
-                    }
-                    </div>
-                    <div className='sm:col-span-2'>
-                        <p className='text-center text-black'>Exiting User ? <Link className=''  to="/login">Login </Link></p>
-                    </div>  
-                    
+    <main className="flex flex-wrap justify-center sm:justify-around min-h-screen bg-gray-800 text-white p-2">
+
+        <div className="hidden sm:block max-w-xl mt-3">
+            <img src={bg} alt="Background" className="w-full h-full object-cover rounded-lg" />
+        </div>
+    
+        <div className="w-full sm:w-2/3 lg:w-1/2 mt-5 rounded-lg p-4">
+            <header className="text-2xl font-mono mb-4 text-center">Create DevTinder Account</header>
+            <p className="text-sm mb-4 text-center">
+                Already have an account? <span className="text-pink-500 cursor-pointer hover:underline">
+                    <Link to="/login">Log In</Link>
+                </span>
+            </p>
+    
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <input
+                        value={formValues.fullName.value}
+                        placeholder="Your Full Name"
+                        type="text"
+                        onChange={handleChange}
+                        autoComplete="off"
+                        name="fullName"
+                        className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg outline-none focus:border-pink-500"
+                    />
+                    <span className="text-sm text-red-600 block min-h-[1.25rem]">{formValues.fullName.error}</span>
+                </div>    
+                <div>
+                    <input
+                        value={formValues.email.value}
+                        placeholder="Your Email Address"
+                        type="email"
+                        onChange={handleChange}
+                        autoComplete="off"
+                        name="email"
+                        className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg outline-none focus:border-pink-500"
+                    />
+                    <span className="text-sm text-red-600 block min-h-[1.25rem]">{formValues.email.error}</span>
+                </div>    
+                <div>
+                    <input
+                        value={formValues.password.value}
+                        placeholder="Set Your Password"
+                        type="password"
+                        onChange={handleChange}
+                        autoComplete="off"
+                        name="password"
+                        className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg outline-none focus:border-pink-500"
+                    />
+                    <span className="text-sm text-red-600 block min-h-[1.25rem]">{formValues.password.error}</span>
+                </div>    
+                <div>
+                    <input
+                        value={formValues.age.value}
+                        placeholder="Your Age in number"
+                        type="text"
+                        onChange={handleChange}
+                        autoComplete="off"
+                        name="age"
+                        className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg outline-none focus:border-pink-500"
+                    />
+                    <span className="text-sm text-red-600 block min-h-[1.25rem]">{formValues.age.error}</span>
+                </div>    
+                <div className="sm:col-span-2">
+                    <select
+                        name="gender"
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg outline-none focus:border-pink-500"
+                    >
+                        <option value="">Select Your Gender</option>
+                        <option value="Male">♂️ Male</option>
+                        <option value="Female">♀ Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <span className="text-sm text-red-600 block min-h-[1.25rem]">{formValues.gender.error}</span>
+                </div>    
+                <div className="sm:col-span-2">
+                    <textarea
+                        name="bio"
+                        value={formValues.bio.value}
+                        onChange={handleChange}
+                        placeholder="A brief about yourself ..."
+                        className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg outline-none focus:border-pink-500"
+                    />
+                    <span className="text-sm text-red-600 block min-h-[1.25rem]">{formValues.bio.error}</span>
+                </div>    
+                <div className="sm:col-span-2">
+                
+                    <button 
+                        onClick={handleSubmit}
+                        disabled={isDisabled}
+                        className={`${isDisabled ? "cursor-not-allowed" : ""} animated-button w-full text-white px-6 py-2 rounded-md`}
+                    >
+                        {isDisabled ? "Submitting" : "Submit"}
+                    </button>                    
                 </div>
             </div>
         </div>
-    </>
+    </main>    
     )
 }
 
 export default SingUpPage;
-
-
-
-

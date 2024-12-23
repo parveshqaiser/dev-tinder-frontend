@@ -39,7 +39,7 @@ const Navbar = ({user}) => {
                 toast.success("Log out success",{duration: 1500,position: 'top-center'});
                 setTimeout(()=>{
                     navigate("/login");
-                    dispatch(removeUser());
+                    dispatch(removeUser(null));
                     dispatch()
                 },1800); 
             }                  
@@ -58,7 +58,7 @@ const Navbar = ({user}) => {
 
         {user && 
             <div className='hidden sm:flex text-white mr-4 items-center'>
-                {user?.gender == "Male" ? "Mr " : "Miss "}<span className='font-semibold ml-1 truncate'>&nbsp; {user?.fullName}</span>
+                {user?.gender == "Male" ? "Mr " : "Miss "}<span className='font-semibold ml-1 truncate'>&nbsp;{user?.fullName}</span>
             </div>
         }
 

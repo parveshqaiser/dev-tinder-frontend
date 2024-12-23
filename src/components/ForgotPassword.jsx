@@ -137,7 +137,7 @@ const ForgotPassword = () => {
 
             <div className="text-center md:text-left">
                 <div className='flex items-center'>
-                    <p className='text-3xl font-bold text-pink-500 mb-4'>Forgot Password ? <FaUnlockAlt size={24} /></p>
+                    <p className='text-3xl font-bold text-pink-500 mb-4'>Forgot DevTinder Password ? <FaUnlockAlt size={24} /></p>
                 </div>
                 {showEmail && (
                     <div className='mb-2'>

@@ -68,7 +68,8 @@ const FriendsList = () => {
                 />
             </div>
             <hr className="my-2" />
-            <div className='overflow-auto h-80'>
+            {/* h-80 */}
+            <div className='overflow-auto h-80 lg:h-[60vh]'>
                 <p className='mb-3'>{!!friendsList && friendsList.length} Friends</p>
                 {
                     !!friendsList  && friendsList.length ? friendsList.map(val=>(
@@ -88,7 +89,7 @@ const FriendsList = () => {
         </div> 
 
         {/* left */}
-        <div className="w-full lg:w-2/3 rounded-lg sticky top-0 min-h-56 bg-gradient-to-r from-pink-200 to-purple-300">
+        <div className="w-full lg:w-2/3 rounded-lg sticky top-0 min-h-56 lg:h-[80vh] bg-gradient-to-r from-pink-200 to-purple-300">
             <div className="w-full rounded-lg p-2 flex flex-col items-center">
                 {!storeProfile ? (
                     <p className="font-bold p-5 text-center text-lg text-gray-700">
@@ -109,11 +110,11 @@ const FriendsList = () => {
                         </p>
                        <span className='italic font-serif'> <FaLanguage className='inline'/> I Can Communicate well in</span>
                         <p className='flex justify-evenly text-gray-600 '>
-                            {storeProfile?.languages.map(lang=> <span key={lang} className='px-4 py-1'>{lang}</span>)}
+                            {storeProfile?.languages.map((lang, index)=> <span key={index} className='px-4 py-1'>{lang}</span>)}
                         </p>
                         <span className='italic font-sans'><FaReact className='inline' /> Technologies that I know  </span>
                         <p className='flex flex-wrap justify-evenly text-gray-600'>
-                            {storeProfile?.skills.map(skill=> <span className='px-4 py-1'>{skill}</span>)}
+                            {storeProfile?.skills.map((skill, index)=> <span key={index} className='px-4 py-1'>{skill}</span>)}
                         </p>                       
                     </div>
                 )}

@@ -30,7 +30,7 @@ const LeftMessageBox = ({isLoading ,allConnection}) => {
     }
 
     return (
-        <div className="w-full lg:w-1/4 h-[85vh] flex flex-col lg:mx-3 rounded-lg">
+        <div className="w-full lg:w-1/4 h-[80vh] mt-3 flex flex-col lg:mx-3 rounded-lg">
             <div className="my-2 px-3">
                 <input
                     placeholder="Search Friends..."

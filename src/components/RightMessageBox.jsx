@@ -59,7 +59,7 @@ const RightMessageBox = () => {
     }
 
     return (
-        <div className={`rounded-lg w-full lg:w-3/5 lg:h-[85vh] flex flex-col shadow-lg lg:mx-2 mx-1 ${!selectedUser? "bg-gradient-to-r from-pink-300 to-purple-400 my-1" : ""}`}>
+        <div className={`mt-3 rounded-lg w-full lg:w-3/5 lg:h-[80vh] flex flex-col shadow-lg lg:mx-2 mx-1 ${!selectedUser? "bg-gradient-to-r from-pink-300 to-purple-400 my-1" : ""}`}>
         {
             selectedUser == null ? 
             <div>
