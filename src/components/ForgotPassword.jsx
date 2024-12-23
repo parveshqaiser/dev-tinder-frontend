@@ -7,6 +7,7 @@ import { BASE_URL } from '../utils/apis';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUnlockAlt } from "react-icons/fa";
 import img from "../../images/forgot.jpg"
+import validator from 'validator';
 
 const ForgotPassword = () => {
 
@@ -26,27 +27,44 @@ const ForgotPassword = () => {
         let {name, value} = e.target;
         let newValues = {...formValues};
 
-        newValues[name] = {
-            value : value && value.trim(),
-            error : !value ? "Required" : value.trim() == "" ? "Required" : ""
+        if(name == "email")
+        {
+            newValues[name] ={
+                value : value && value.trim(),
+                error : !value ? "Required" : !validator.isEmail(value) ? "Invalid Email" : "",
+            }
+        }
+        
+        if (name == "newPassword" || name == "confirmPassword")
+        {
+            newValues[name] = {
+                value : value && value.trim(),
+                error : !value ? "Required" : "Password must be of length 6 chars"
+            }
         }
         setFormValues(newValues)
     }
 
     async function handleSubmit(status)
     {
-        let {email, newPassword, confirmPassword} = formValues;
+        var {email, newPassword, confirmPassword} = formValues;
+
         if(status == "email")
         {
-            if(formValues.email.value == "")
+            if((!validator.isEmail(email.value)))
             {
-                setFormValues({...formValues, email : {...formValues.email, error : "Required *"}});
+                setFormValues({
+                    ...formValues,
+                    email : {
+                        ...formValues.email,
+                        error :  !email.value ? "Required*" : "Invalid Email"
+                    }});
                 return;
             }
     
-            let email = formValues.email.value;
+            let emailData = formValues.email.value;
             try {
-                let res = await axios.post(BASE_URL+ "/check/email",{email}, {withCredentials: true});
+                let res = await axios.post(BASE_URL+ "/check/email",{emailData}, {withCredentials: true});
                 if(res.data.success){
                     toast.success("Email valid", {duration : 2000})
                     setTimeout(()=>{
@@ -61,21 +79,30 @@ const ForgotPassword = () => {
         
         if(status == "password")
         {
-            if(newPassword.value == "")
+            if(newPassword.value == "" || newPassword.value.length<=5)
             {
-                setFormValues({...formValues, newPassword : {...formValues.newPassword, error : "Required *"}});
+                setFormValues({...formValues,
+                    newPassword : {...formValues.newPassword,
+                        error : !newPassword.value ? "Required*" : newPassword.value.length <=5 ? "Password Length must be 6 chars" : ""
+                    }});
                 return;
             }
 
-            if(confirmPassword.value == "")
+            if(confirmPassword.value == "" || confirmPassword.value.length<=5)
             {
-                setFormValues({...formValues, confirmPassword : {...formValues.confirmPassword, error : "Required *"}});
+                setFormValues({...formValues,
+                    confirmPassword : {...formValues.confirmPassword,
+                        error : !confirmPassword.value ? "Required*" : confirmPassword.value.length <=5 ? "Password Length must be 6 chars" : ""
+                    }});
                 return;
             }
 
             if(newPassword.value !== formValues.confirmPassword.value)
             {
-                setFormValues({...formValues, confirmPassword : {...formValues.confirmPassword, error : "Password Not matched*"}});
+                setFormValues({...formValues,
+                    newPassword : {...formValues.newPassword,error : ""},
+                    confirmPassword : {...formValues.confirmPassword, error : "Password Not matched*"}
+                });
                 return;
             }
 
@@ -103,7 +130,7 @@ const ForgotPassword = () => {
 
     return(
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-6 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-3 lg:px-20">
             <>
                 <img src={img}  className='rounded-lg'/>
             </>
@@ -118,6 +145,7 @@ const ForgotPassword = () => {
                         <input 
                             onChange={handleChange}
                             type='text' 
+                            autoComplete='off'
                             value={formValues.email.value}
                             name='email'
                             className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-300 focus:outline-none"
@@ -160,6 +188,7 @@ const ForgotPassword = () => {
                         {showEmail ? "Verify Email" : "Reset Password"}
                     </button>
                 </div>
+                <p className='underline text-sm text-blue-500 my-2'> <Link to="/login">Back to Login</Link></p>
         
             </div>
         </div>
