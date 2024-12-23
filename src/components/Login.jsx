@@ -131,7 +131,7 @@ const AlternateLogin = () => {
             <div className="w-full md:w-3/5 bg-cover bg-center object-cover m-2">
                 <img src={pic} className="rounded-lg min-h-screen" />
             </div>
-            {/* <Toaster /> */}
+            
             <div className="w-full md:w-2/6 p-3 mx-5 md:mt-10">
                 <h2 className="text-xl md:text-2xl font-bold mb-2 text-center text-pink-500">Dev Tinder</h2>
                 <p className="text-center mb-2">Date❤️, Make Friends & meet new people👦👧</p>
