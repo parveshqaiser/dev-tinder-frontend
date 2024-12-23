@@ -44,7 +44,7 @@ function App() {
         }
 
         return () => {
-        console.log("Socket cleanup");
+        // console.log("Socket cleanup");
         disconnectSocket();
         };
 
