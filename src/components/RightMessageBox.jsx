@@ -34,7 +34,7 @@ const RightMessageBox = () => {
     function handleChange(e)
     {
         let {value} = e.target;
-        if(!value){
+        if(!value || value && value.trim()== ""){
             setIsDisabled(true);
             setMessage("");
         }else {

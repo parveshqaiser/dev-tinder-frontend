@@ -57,7 +57,7 @@ function App() {
       <BrowserRouter basename='/'>     
       <Toaster />
         <Routes>
-          <Route path='/' element={<Login />}></Route>
+          <Route path='/' element={<SingUpPage />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<SingUpPage />}></Route>
           <Route path='/forgot-password' element={<ForgotPassword />}></Route>  
