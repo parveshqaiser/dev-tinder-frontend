@@ -73,7 +73,7 @@ const ForgotPassword = () => {
                 }
             } catch (error) {
                 console.log("er ", error);
-                toast.error(error?.response?.data?.message, {duration : 2000})
+                toast.error(error?.response?.data?.message || error?.message, {duration : 2000})
             }
         }
         

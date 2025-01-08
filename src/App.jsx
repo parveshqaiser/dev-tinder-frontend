@@ -16,7 +16,6 @@ import ForgotPassword from './components/ForgotPassword'
 import { createContext, useEffect, useRef, } from 'react'
 import { addAllOnlineUsers} from './redux/socketSlice';
 
-
 import { disconnectSocket, getSocket } from './utils/socket'
 import { Toaster } from 'react-hot-toast'
 
@@ -73,7 +72,6 @@ function App() {
           </Route>
           <Route path='*' element={<h1 className='text-center mt-2 text-red-400 font-semibold'> 404 !!!Requested Page Not Found</h1>}></Route>
         </Routes>     
-        {/* </Toaster>   */}
       </BrowserRouter>
       </SocketContext.Provider>
       </>
