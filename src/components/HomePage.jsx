@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addAllFeeds} from '../redux/userSlice';
 import toast, { Toaster } from 'react-hot-toast';
 import loading from "../../images/loading.gif";
+import { useNavigate } from 'react-router-dom';
 // import TinderCard from 'react-tinder-card';
 
 
@@ -14,6 +15,7 @@ const HomePage = () => {
   
     let dispatch = useDispatch();
     let feed = useSelector(store => store?.user?.allFeed);
+    let navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -38,7 +40,9 @@ const HomePage = () => {
                 setIsLoading(false)
             }           
         } catch (error) {
-            console.log("error ",error);
+            if(error.status == 401){
+                navigate("/")
+            }   
             setIsLoading(false)
             toast.error(error.response.data.message, {duration : 1500})
         }
@@ -55,7 +59,8 @@ const HomePage = () => {
                     dispatch(addAllFeeds(modifyAllFeed))
                 },1200)
             }
-        } catch (error) {
+
+        } catch (error) {   
             console.log(error);
             toast.error(error?.response?.data?.message , {duration :2000})
         }
