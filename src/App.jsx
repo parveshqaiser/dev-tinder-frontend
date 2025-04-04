@@ -30,17 +30,17 @@ function App() {
     let loggedInUser = useSelector((store)=> store.user.user);
     
     useEffect(()=>{
-        let socketValue = null;
-        if(loggedInUser)
-        {
-          socketValue = getSocket(loggedInUser?._id)
-          socketValue.emit("requestOnlineUsers");
-          
-          socketValue.on("getOnlineUsers", (onlineUsers)=>{
-              dispatch(addAllOnlineUsers(onlineUsers));
-          })
-        
-        }
+		let socketValue = null;
+		if(loggedInUser)
+		{
+			socketValue = getSocket(loggedInUser?._id)
+			socketValue.emit("requestOnlineUsers");
+			
+			socketValue.on("getOnlineUsers", (onlineUsers)=>{
+				dispatch(addAllOnlineUsers(onlineUsers));
+			})
+		
+		}
 
         return () => {
         // console.log("Socket cleanup");
@@ -51,31 +51,30 @@ function App() {
 
 
   return(
-    <>
-    <SocketContext.Provider value={socketRef}>
-      <BrowserRouter basename='/'>     
-      <Toaster />
-        <Routes>
-          <Route path='/' element={<SingUpPage />}></Route>
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/signup' element={<SingUpPage />}></Route>
-          <Route path='/forgot-password' element={<ForgotPassword />}></Route>  
+	<>
+	<SocketContext.Provider value={socketRef}>
+		<BrowserRouter basename='/'>     
+			<Toaster />
+			<Routes>
+				<Route path='/' element={<SingUpPage />}></Route>
+				<Route path='/login' element={<Login />}></Route>
+				<Route path='/signup' element={<SingUpPage />}></Route>
+				<Route path='/forgot-password' element={<ForgotPassword />}></Route>  
 
-          <Route element={<Body />}>
-              <Route path='/home' element={<HomePage />}></Route>
-              <Route path='/profile' element={<Profile />}></Route>
-              <Route path='/edit' element={<EditProfile />}></Route>
-              <Route path='/change/password' element={<UpdatePassword/>}></Route>
-              <Route path='/request' element={<PendingRequest />}></Route>
-              <Route path='/friends' element={<FriendsList />}></Route>  
-              <Route path='/message' element={<Message />}></Route>                   
-          </Route>
-          <Route path='*' element={<h1 className='text-center mt-2 text-red-400 font-semibold'> 404 !!!Requested Page Not Found</h1>}></Route>
-        </Routes>     
-      </BrowserRouter>
-      </SocketContext.Provider>
-      </>
-  )
+				<Route element={<Body />}>
+					<Route path='/home' element={<HomePage />}></Route>
+					<Route path='/profile' element={<Profile />}></Route>
+					<Route path='/edit' element={<EditProfile />}></Route>
+					<Route path='/change/password' element={<UpdatePassword/>}></Route>
+					<Route path='/request' element={<PendingRequest />}></Route>
+					<Route path='/friends' element={<FriendsList />}></Route>  
+					<Route path='/message' element={<Message />}></Route>                   
+				</Route>
+				<Route path='*' element={<h1 className='text-center mt-2 text-red-400 font-semibold'> 404 !!!Requested Page Not Found</h1>}></Route>
+			</Routes>     
+		</BrowserRouter>
+	</SocketContext.Provider>
+	</>)
 }
 
 export default App;

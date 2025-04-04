@@ -115,7 +115,7 @@ const Login = () => {
            
         } catch (err) {
             toast.error(err?.response?.data?.message || "Check Internet Connection",{position:"top-center", duration:2000})
-            console.log(err.response)
+            console.log(err)
             setIsDisabled(false);
         }
     }
