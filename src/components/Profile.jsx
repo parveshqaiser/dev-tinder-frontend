@@ -63,8 +63,3 @@ const Profile = () => {
 }
 
 export default Profile;
-
-{/* <span className="px-4 py-2 bg-gray-200 rounded-full">🏊🏻‍♀️ Swimming</span>
-<span className="px-4 py-2 bg-gray-200 rounded-full">🤸🏻‍♀️ Gym</span>
-<span className="px-4 py-2 bg-gray-200 rounded-full">🌎 Newspaper</span>
-<span className="px-4 py-2 bg-gray-200 rounded-full">🚴🏻‍♀️ Traveling</span> */}
