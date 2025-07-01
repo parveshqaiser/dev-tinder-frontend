@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/apis'
-import loading from "../../images/loveloading.gif";
+// import loading from "../../public/images/loveloading.gif";
 import { BACKUP_PROFILE_URL } from '../utils/constants';
 import { FaLanguage } from "react-icons/fa6";
 import { FaReact } from "react-icons/fa";
@@ -49,7 +49,7 @@ const FriendsList = () => {
     if(isLoading)
     {
         <div className='mt-5 flex justify-center'>
-            <img src={loading} className='w-28 h-28' />
+            <img src="/images/loveloading.gif" className='w-28 h-28' />
         </div>
         return;
     }

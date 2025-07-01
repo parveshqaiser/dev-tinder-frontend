@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import bg from "../../images/sign.jpg"
-// import img  from '../../images/signup.jpg'
+// import bg from "../../public/images/sign.jpg"
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
 import axios from 'axios';
@@ -158,7 +157,7 @@ const SingUpPage = () => {
     <main className="flex flex-wrap justify-center sm:justify-around min-h-screen bg-gray-800 text-white p-2">
 
         <div className="hidden sm:block max-w-xl mt-3">
-            <img src={bg} alt="Background" className="w-full h-full object-cover rounded-lg" />
+            <img src="/images/sign.jpg" alt="Background" className="w-full h-full object-cover rounded-lg" />
         </div>
     
         <div className="w-full sm:w-2/3 lg:w-1/2 mt-5 rounded-lg p-4">

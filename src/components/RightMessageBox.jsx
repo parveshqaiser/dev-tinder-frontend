@@ -6,7 +6,7 @@ import { IoMdSend } from "react-icons/io";
 import {useDispatch, useSelector } from 'react-redux';
 import { BASE_URL } from '../utils/apis';
 
-import loading from "../../images/robot.gif";
+// import loading from "../../public/images/robot.gif";
 import { addAllMessages, addSelectedUser } from '../redux/messageSlice';
 
 
@@ -63,7 +63,7 @@ const RightMessageBox = () => {
         {
             selectedUser == null ? 
             <div>
-                <img src={loading}  className="w-56 m-auto"/> 
+                <img src={"/images/robot.gif"}  className="w-56 m-auto"/> 
                 <p className='text-center font-mono'>Welcome <span className='text-2xl font-bold text-purple-600'> Admin </span></p>
                 <p className='text-center font-mono'>Please Select a chat to start messaging</p>
             </div> : (

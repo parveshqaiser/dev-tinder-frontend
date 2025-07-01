@@ -5,8 +5,8 @@ import axios from 'axios';
 import { BASE_URL } from '../utils/apis';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAllFeeds} from '../redux/userSlice';
-import toast, { Toaster } from 'react-hot-toast';
-import loading from "../../images/loading.gif";
+import toast from 'react-hot-toast';
+// import loading from "../../public/images/loading.gif";
 import { useNavigate } from 'react-router-dom';
 // import TinderCard from 'react-tinder-card';
 
@@ -71,7 +71,7 @@ const HomePage = () => {
     if(isLoading) 
     {
         <div className='mt-5 flex justify-center'>
-            <img src={loading} className='w-24 h-24' />
+            <img src="/images/loading.gif" className='w-24 h-24' />
         </div>
         return
     }
