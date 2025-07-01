@@ -40,7 +40,9 @@ const HomePage = () => {
                 setIsLoading(false)
             }           
         } catch (error) {
+           
             if(error.status == 401){
+                 console.log("going herreeeeeeeeeee")
                 navigate("/")
             }   
             setIsLoading(false)

@@ -38,7 +38,7 @@ const Profile = () => {
                     <p className="flex flex-wrap justify-evenly text-gray-600 gap-2">
                     {
                         user && user?.skills?.map((val)=>(
-                        <span className="px-4 py-2 bg-gray-200 rounded-full"> {val || "NA"}</span>
+                        <span key={val} className="px-4 py-2 bg-gray-200 rounded-full"> {val || "NA"}</span>
                         ))
                     }                        
                     </p>
@@ -47,11 +47,8 @@ const Profile = () => {
                     
                     <h2 className="text-xl text-center font-semibold text-gray-700 my-2">Languages Spoken 🗣</h2>
                     <p className="flex flex-wrap justify-evenly text-gray-600 gap-2">
-                    {
-                        user && user?.languages && user?.languages?.map((val)=>(
-                            <>
-                            <span className="px-4 py-2 bg-gray-200 rounded-full">{val}</span>
-                            </>
+                    {user && user?.languages && user?.languages?.map((val)=>(
+                        <span key={val} className="px-4 py-2 bg-gray-200 rounded-full">{val}</span>
                         ))
                     }
                     </p>
