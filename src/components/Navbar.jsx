@@ -40,7 +40,6 @@ const Navbar = ({user}) => {
                 setTimeout(()=>{
                     navigate("/login");
                     dispatch(removeUser(null));
-                    dispatch()
                 },1800); 
             }                  
 

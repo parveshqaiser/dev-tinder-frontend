@@ -55,9 +55,9 @@ const FriendsList = () => {
     }
 
     return (
-    <nav className='mt-5 flex flex-col lg:flex-row'>
+    <main className='pt-5 flex flex-col lg:flex-row  max-w-7xl mx-auto min-h-screen'>
         {/* right */}
-        <div className='w-full lg:w-1/4 lg:mx-8 p-2 rounded-lg bg-white'>
+        <aside className='w-full lg:w-1/4 lg:mx-8 p-2 rounded-lg bg-white'>
             <span className='text-sm'>All Connections</span>
             <div className='my-2'>
                 <input 
@@ -86,10 +86,10 @@ const FriendsList = () => {
                     )) :(!!friendsList && friendsList.length==0) ? <p>  <span className='font-semibold'> "{searchText} "</span> not found.</p> :<p>Opps! Your Friend List is empty.</p>
                 }               
             </div>
-        </div> 
+        </aside> 
 
         {/* left */}
-        <div className="w-full lg:w-2/3 rounded-lg sticky top-0 min-h-56 lg:h-[80vh] bg-gradient-to-r from-pink-200 to-purple-300">
+        <aside className="w-full lg:w-2/3 rounded-lg sticky top-0 min-h-56 lg:h-[80vh] bg-gradient-to-r from-pink-200 to-purple-300">
             <div className="w-full rounded-lg p-2 flex flex-col items-center">
                 {!storeProfile ? (
                     <p className="font-bold p-5 text-center text-lg text-gray-700">
@@ -119,9 +119,9 @@ const FriendsList = () => {
                     </div>
                 )}
             </div>
-        </div>
+        </aside>
 
-    </nav>
+    </main>
     )
 }
 

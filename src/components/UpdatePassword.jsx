@@ -104,7 +104,7 @@ const UpdatePassword = () => {
     }
 
     return (
-    <div className='sm:max-w-lg sm:mx-auto mt-10 border-2 shadow-md p-3 rounded-lg mx-2'>
+    <main className='max-w-lg md:mx-auto bg-gradient-to-r mt-10 from-pink-300 to-purple-300 border-2  shadow-md p-3 rounded-lg mx-6'>
         <header className='flex gap-x-2 justify-center items-center'>
             <p className='text-lg text-center text-pink-700 mb-2'>Update Password </p><GrUpdate />
         </header>        
@@ -147,7 +147,7 @@ const UpdatePassword = () => {
                 className="bg-pink-500 hover:bg-pink-600 w-1/4 p-2 rounded-md"
             >Submit</button>
         </div>
-    </div>
+    </main>
     )
 }
 

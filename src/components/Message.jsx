@@ -30,8 +30,7 @@ const Message = () => {
         }
     
         return () => {
-            if (socket) 
-            {
+            if (socket) {
                 socket.off("newMessage");
             }
         };
@@ -42,10 +41,10 @@ const Message = () => {
     let allConnection = useSelector(store => store?.user?.allConnectionUsers);
 
     return (
-        <div className='flex flex-col lg:flex-row'>        
+        <main className='flex flex-col lg:flex-row max-w-7xl mx-auto'>        
             <LeftMessageBox isLoading={isLoading} allConnection ={allConnection}/>
             <RightMessageBox />
-        </div>
+        </main>
     )
 }
 

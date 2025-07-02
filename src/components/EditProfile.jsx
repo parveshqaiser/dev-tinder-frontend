@@ -97,8 +97,6 @@ const EditProfile = () => {
                 skills : incomingInterestData,
             })
         }
-
-        
     },[user])
 
     function handleChange(e)
@@ -246,14 +244,14 @@ const EditProfile = () => {
     return(
     <>
     {user && (
-        <nav className='flex flex-col md:flex-row max-w-5xl justify-around md:p-2'>
-            <div className='w-full md:w-1/3 md:mx-5 mt-5 p-2 md:sticky md:top-5 md:h-64'>
+        <nav className='flex flex-col md:flex-row max-w-5xl mx-auto justify-around md:p-2 '>
+            <aside className='w-full flex justify-center md:w-1/3 md:mx-5 mt-5 p-2 md:sticky md:top-5 md:h-64'>
                 <img className='rounded-lg' src={user?.photoUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT0M9PkaDKnCMW8NANGmmvjkS-WhhsIOe4pQ&s"}/>
-            </div>
+            </aside>
             {/* w-full md:w-1/3 mx-auto mt-5 md:mt-0 flex justify-center */}
             {/* w-full md:w-2/3 mx-auto border-2 p-4 mt-5 md:mt-0 */}
             
-            <div className='w-full md:w-2/3 mx-auto  p-4 mt-5 md:mt-0'>
+            <aside className='w-full md:w-2/3 mx-auto  p-4 mt-5 md:mt-0'>
                 <h1 className='font-semibold text-center md:text-xl mb-4'>Edit Profile</h1>
                 <form onSubmit={(e)=> e.preventDefault()}> 
                     <div className='mb-3'>
@@ -347,7 +345,7 @@ const EditProfile = () => {
                         {isDisabled ? "Updating..." : "Update"}
                     </button>
                 </form>
-            </div>
+            </aside>
         </nav>
     )}
     </>

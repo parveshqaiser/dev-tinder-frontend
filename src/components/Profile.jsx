@@ -10,7 +10,7 @@ const Profile = () => {
 
 	return (
 	<main className="min-h-screen py-4 px-4">
-		<section className="max-w-4xl mx-auto animate-fade-in">
+		<section className="max-w-4xl mx-auto animate">
 
 			<div className="bg-gradient-to-tr from-gray-600 to-black/75 shadow-2xl rounded-2xl overflow-hidden border border-gray-700 backdrop-blur-sm hover:shadow-3xl transition-all duration-300 hover:-translate-y-2">
 
