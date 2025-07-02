@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/apis';
 import { removeUser } from '../redux/userSlice';
 import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { BsFillPersonPlusFill, BsFillHouseDoorFill ,BsKeyFill, BsWrench , BsChatLeftDotsFill} from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";
 import { IoMdHeartDislike } from "react-icons/io";
@@ -51,7 +51,7 @@ const Navbar = ({user}) => {
     }
 
     return (
-    <div className="navbar bg-gradient-to-r from-pink-400 to-pink-600 m-0">
+    <main className="navbar bg-gradient-to-r from-pink-400 to-pink-600 m-0 max-w-7xl mx-auto">
         <div className="flex-1">
             <span className="btn btn-ghost text-2xl sm:text-2xl text-white">Dev Tinder < IoMdHeartDislike /></span>
         </div>
@@ -147,20 +147,9 @@ const Navbar = ({user}) => {
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-1 top-1">✕</button>
                 </form>
                 <h5 className="font-semibold text-md">All Request {allRequest.length || 0}</h5>
-                {/* {
-                    !!allRequest && allRequest.map(val=>(
-                        <>
-                        <div>
-                            <img src={val?.fromUserId?.photoUrl} className='w-12 rounded-full' />
-                            <p>click to view</p>
-                        </div>
-                        
-                        </>
-                    )) 
-                }                */}
             </div>
         </dialog>
-    </div>
+    </main>
     )
 }
 

@@ -38,13 +38,12 @@ function App() {
 			
 			socketValue.on("getOnlineUsers", (onlineUsers)=>{
 				dispatch(addAllOnlineUsers(onlineUsers));
-			})
-		
+			})		
 		}
 
         return () => {
-        // console.log("Socket cleanup");
-        disconnectSocket();
+        	// console.log("Socket cleanup");
+        	disconnectSocket();
         };
 
     },[loggedInUser, dispatch])
