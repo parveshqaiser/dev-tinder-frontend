@@ -75,10 +75,17 @@ const SignUpPage = () => {
             }
         }
 
-        if (name == "password" || name == "gender") {
+        if (name == "password"){
             newValues[name] = {
                 value: value,
-                error: !value ? "Required" : "",
+                error : !value ? "Required" : (value.length <=8) ? "Password should be min 8 characters": "",
+            }
+        }
+
+        if(name == "gender"){
+            newValues[name] = {
+                value: value,
+                error : !value ? "Required" : "",
             }
         }
         setFormValues(newValues)
@@ -114,8 +121,13 @@ const SignUpPage = () => {
             return;
         }
 
-        if (!password.value) {
-            setFormValues({ ...formValues, password: { ...formValues.password, error: "Required" } })
+        if (!password.value || password.value.length<=5) {
+            setFormValues({
+                ...formValues, 
+                password : {
+                    ...formValues.password,
+                    error :!password.value ? "Required" : "Password should be min 8 characters"
+            }})
             return;
         }
 

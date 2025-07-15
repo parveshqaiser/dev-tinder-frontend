@@ -51,7 +51,7 @@ const Login = () => {
         if (name == "password") {
             newValues[name] = {
                 value: value && value.trim(),
-                error: !value ? "Required" : "",
+                error : !value ? "Required" : "",
             }
         }
 
@@ -66,12 +66,12 @@ const Login = () => {
             setFormValues({
                 ...formValues,
                 email: {
-                ...formValues.email,
-                error: !validator.isEmail(email.value) ? "Invalid Email" : "Required",
+                    ...formValues.email,
+                    error: !validator.isEmail(email.value) ? "Invalid Email" : "Required",
                 },
                 password: {
-                ...formValues.password,
-                error: "Required",
+                    ...formValues.password,
+                    error: "Required",
                 },
             })
             return;
@@ -91,7 +91,7 @@ const Login = () => {
         const data = {
             email: formValues.email.value,
             password: formValues.password.value,
-        }
+        };
 
         try {
             setIsDisabled(true)
@@ -222,7 +222,7 @@ const Login = () => {
                                 value={formValues.email.value}
                                 className="w-full px-3 py-2 bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400 focus:ring-1 focus:ring-purple-400/20 rounded-md focus:outline-none"
                             />
-                            <span className="text-white text-sm">{formValues.email.error}</span>
+                            <span className="text-red-500 text-sm">{formValues.email.error}</span>
                         </div>
 
                         <div className="space-y-2">
@@ -244,7 +244,7 @@ const Login = () => {
                                 {showPassword ? <BsEyeFill size={18} /> : <FaEyeSlash size={18} />}
                                 </button>
                             </div>
-                            <span className="text-white text-sm">{formValues.password.error}</span>
+                            <span className="text-red-500 text-sm">{formValues.password.error}</span>
                         </div>
 
                         <div className="flex items-center justify-between text-sm">
