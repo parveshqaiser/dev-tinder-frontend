@@ -105,7 +105,7 @@ const Login = () => {
                 }, 2100)
             }
             } catch (err) {
-                toast.error(err?.response?.data?.message || "Check Internet Connection", {
+                toast.error(err?.message || "Check Internet Connection", {
                     position: "top-center",
                     duration: 2000,
                 })
