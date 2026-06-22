@@ -44,7 +44,7 @@ const RightMessageBox = () => {
         }
     }
 
-    async function handleSubmit()
+    let handleSendMessage = async()=>
     {
         try {
             let res = await axios.post(BASE_URL+ `/send/message/${selectedUser?._id}`,{message},{withCredentials:true});
@@ -103,7 +103,7 @@ const RightMessageBox = () => {
                         className="w-full p-2 pl-4 pr-12 rounded-full bg-gray-200 outline-none focus:ring-2 focus:ring-purple-400"
                         placeholder="Type Something..."
                     />
-                    <button onClick={handleSubmit} disabled={isDisabled} className={`absolute right-5 top-1/2 transform -translate-y-1/2 text-purple-500 ${isDisabled? "cursor-not-allowed" :""}`}>
+                    <button onClick={handleSendMessage} disabled={isDisabled} className={`absolute right-5 top-1/2 transform -translate-y-1/2 text-purple-500 ${isDisabled? "cursor-not-allowed" :""}`}>
                         <IoMdSend size={24} />
                     </button>
                 </div>
