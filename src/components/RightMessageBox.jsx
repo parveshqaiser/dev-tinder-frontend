@@ -20,6 +20,7 @@ const RightMessageBox = () => {
     const [isDisabled , setIsDisabled] = useState(true);
 
     const scrollBar = useRef();
+    let sendMessageRef = useRef();
 
     useEffect(()=>{
         return (()=>{
@@ -100,6 +101,11 @@ const RightMessageBox = () => {
                         type="text"
                         value={message}
                         onChange={handleChange}
+                        onKeyDown={(e)=>{
+                            if(e.key == "Enter") {
+                                handleSendMessage();
+                            }
+                        }}
                         className="w-full p-2 pl-4 pr-12 rounded-full bg-gray-200 outline-none focus:ring-2 focus:ring-purple-400"
                         placeholder="Type Something..."
                     />
