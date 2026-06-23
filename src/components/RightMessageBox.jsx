@@ -97,8 +97,8 @@ const RightMessageBox = () => {
                 </div>
 
                 <div className="p-2 bg-gray-50 border-t rounded-b-lg relative">
-                    <input
-                        type="text"
+                    <textarea
+                        rows={1}
                         value={message}
                         onChange={handleChange}
                         onKeyDown={(e)=>{
